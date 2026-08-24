@@ -1,0 +1,29 @@
+name: Validate skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate SKILL.md files and plugin manifests
+        run: node scripts/validate-skills.mjs
+      - name: Run plugin and validator tests
+        run: npm test
+      - name: Check bundled scripts are executable
+        run: |
+          missing=0
+          while IFS= read -r f; do
+            if [ ! -x "$f" ]; then
+              echo "ERROR not executable: $f"
+              missing=1
+            fi
+          done < <(find skills -type f -path '*/scripts/*' -name '*.sh')
+          exit $missing

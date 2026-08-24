@@ -1,0 +1,34 @@
+# Publishes the npm package (the OpenCode plugin + bundled skills) when a
+# GitHub release is published. OpenCode users who list the package as
+# "<name>@latest" in opencode.json pick up the new version automatically at
+# their next startup.
+#
+# Setup: create an npm automation token and add it as the NPM_TOKEN secret
+# in the repository settings. Delete this workflow if you don't publish to npm.
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write # npm provenance
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: https://registry.npmjs.org
+      - name: Validate before publishing
+        run: node scripts/validate-skills.mjs
+      - name: Run tests before publishing
+        run: npm test
+      - name: Publish
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

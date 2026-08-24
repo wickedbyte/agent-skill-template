@@ -1,0 +1,14 @@
+{
+  "name": "agent-skill-template",
+  "displayName": "Agent Skill Template",
+  "version": "0.2.0",
+  "description": "TODO — one-line description of your skill collection, shown in the Claude Code plugin manager.",
+  "author": {
+    "name": "WickedByte",
+    "email": "andy@wickedbyte.com"
+  },
+  "homepage": "https://github.com/wickedbyte/agent-skill-template",
+  "repository": "https://github.com/wickedbyte/agent-skill-template",
+  "license": "MIT",
+  "keywords": ["skills", "agent-skills", "template"]
+}

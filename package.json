@@ -1,0 +1,28 @@
+{
+  "name": "@wickedbyte/agent-skill-template",
+  "version": "0.2.0",
+  "description": "TODO — one-line description of your skill collection (shown on npm).",
+  "type": "module",
+  "exports": "./src/opencode-plugin.js",
+  "files": [
+    "src",
+    "skills"
+  ],
+  "scripts": {
+    "validate": "node scripts/validate-skills.mjs",
+    "test": "node --test test/opencode-plugin.test.js test/validate-skills.test.js"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "agent-skills",
+    "skills"
+  ],
+  "author": "WickedByte <andy@wickedbyte.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wickedbyte/agent-skill-template.git"
+  },
+  "homepage": "https://github.com/wickedbyte/agent-skill-template#readme"
+}

@@ -1,0 +1,16 @@
+/.remember/
+/.idea/
+/.local/
+/.vscode/
+/.zed/
+/tui.json
+*.local.json
+*.log
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+node_modules/
+
+.env
+!.env.example

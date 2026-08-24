@@ -1,0 +1,15 @@
+{
+  "name": "agent-skill-template",
+  "description": "TODO — one-line description of what this marketplace offers.",
+  "owner": {
+    "name": "WickedByte"
+  },
+  "plugins": [
+    {
+      "name": "agent-skill-template",
+      "source": "./",
+      "description": "TODO — one-line description of your skill collection.",
+      "version": "0.2.0"
+    }
+  ]
+}
